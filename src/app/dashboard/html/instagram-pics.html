@@ -22,17 +22,28 @@
 
 
   <md-list layout="row" layout-align="center center" layout-padding layout-wrap>
-    <md-item ng-repeat="pic in picList.data | pagination:currentPage*itemsPerPage | limitTo: itemsPerPage | filter:searchText" layout="row" layout-fill flex="15">
-      <md-item-content>
-      <md-whiteframe class="md-whiteframe-z3" layout="row" layout-margin flex>
+    <md-item
+    ng-repeat="pic in picList.data | pagination:currentPage*itemsPerPage | limitTo: itemsPerPage | filter:searchText"
+    layout="row"
+    layout-fill
+    flex-sm="100"
+    flex-gt-sm="55"
+    flex-md="45"
+    flex-gt-md="35"
+    flex-lg="33"
+    flex-gt-lg="20"
+    >
+      <md-whiteframe class="md-whiteframe-z3" layout="column" layout-align="start start" layout-margin layout-padding flex>
+        <md-item-content layout-margin layout-padding flex>
         <div class="md-tile-left">
           <img ng-src="{{pic.images.thumbnail.url}}" class="face" alt="">
         </div>
-        <div class="md-tile-content">
-          <h4>{{pic.caption.text}}</h4>
+        <div class="md-tile-content" layout-padding layout-margin>
+          <h3>{{pic.caption.text}}</h3>
         </div>
+      </md-item-content>
       </md-whiteframe>
-    </md-item-content>
+
     </md-item>
   </md-list>
 </md-card>

@@ -27,6 +27,7 @@ angular.module('chadJiffDemo.instagram.service', [])
       clearCache: function(){
         OAuth.clearCache('instagram');
         authorizationResult = false;
+        Session.destroy();
       },
       getUser: function(){
         var deferred = $q.defer();

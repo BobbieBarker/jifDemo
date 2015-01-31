@@ -9,7 +9,7 @@ angular.module('chadJiffDemo.navbar', [])
       templateUrl: 'app/components/navbar/navbar.html',
       controller: 'navbarCtrl'
     }
-  }).controller('navbarCtrl', function($scope, instagramService){
+  }).controller('navbarCtrl', function($scope, $state, instagramService){
     $scope.logout = function(){
       instagramService.clearCache();
       $state.go('sign-in');

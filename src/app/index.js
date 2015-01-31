@@ -23,14 +23,12 @@ angular.module('chadJiffDemo', [
   })
 
   $scope.$on('$stateChangeStart', function($event, toState){
-    console.log('moar cheese')
     if(toState.resolve){
       $scope.isResolvesPending = true;
     }
   })
 
   $scope.$on('$stateChangeSuccess', function($event, toState, toParams, fromState, fromParams){
-    console.log('no maor cheese')
     if (toState.resolve) {
       $scope.isResolvesPending = false;
     }

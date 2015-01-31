@@ -26,7 +26,9 @@ angular.module('chadJiffDemo.dashboard.instagram', [])
 
 
     this.pageCount = function(){
-      return Math.ceil($scope.picList.data.length/$scope.itemsPerPage)-1;
+      if(!_.isUndefined($scope.picList)){
+        return Math.ceil($scope.picList.data.length/$scope.itemsPerPage)-1;
+      }
     }
 
 

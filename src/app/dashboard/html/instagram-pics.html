@@ -23,7 +23,7 @@
 
   <md-list layout="row" layout-align="center center" layout-padding layout-wrap>
     <md-item
-    class="fx-fade-down  fx-speed-1400"
+    class="fx-fade-down  fx-speed-700"
     ng-repeat="pic in picList.data | pagination:currentPage*itemsPerPage | limitTo: itemsPerPage | filter:searchText"
     layout="row"
     layout-fill
@@ -34,7 +34,7 @@
     flex-lg="33"
     flex-gt-lg="20"
     >
-      <md-whiteframe class="md-whiteframe-z3" layout="column" layout-align="start start" layout-margin layout-padding flex>
+      <md-whiteframe class="md-whiteframe-z3" layout="column" layout-align="start start" layout-margin layout-padding flex >
         <md-item-content layout-margin layout-padding flex>
         <div class="md-tile-left">
           <img ng-src="{{pic.images.thumbnail.url}}" class="face" alt="">

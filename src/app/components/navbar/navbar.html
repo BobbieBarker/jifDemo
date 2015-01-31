@@ -1,0 +1,62 @@
+<div layout="row"  layout-fill hide-sm>
+  <md-toolbar flex>
+    <div class="md-toolbar-tools"  layout-align="space-between center">
+      <span>
+        <h2>
+          <a ui-sref="dashboard">
+            Chad Jif Demo
+            <md-tooltip>
+              Return To DashBoard
+            </md-tooltip>
+          </a>
+        </h2>
+      </span>
+
+      <span><small>Logged In As: {{user.full_name}}</small></span>
+
+      <span>
+        <a ng-click="logout()" ui-sref="sign-in">
+          <md-button>
+            <i class="fa fa-sign-out fa-2x"></i>
+          </md-button>
+          <md-tooltip>
+            Sign Out
+          </md-tooltip>
+        </a>
+      </span>
+
+    </div>
+  </md-toolbar>
+</div>
+
+<div layout="column" show-sm hide-gt-sm>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+
+    <span flex>
+      <h3>
+        <a ui-sref="dashboard">
+          Chad Jif Demo
+          <md-tooltip>
+            Return To DashBoard
+          </md-tooltip>
+        </a>
+      </h3>
+    </span>
+
+    <span>
+      <a ng-click="logout()" ui-sref="sign-in">
+        <md-button>
+          <i class="fa fa-sign-out fa-2x"></i>
+        </md-button>
+        <md-tooltip>
+          Sign Out
+        </md-tooltip>
+      </a>
+    </span>
+
+  </div>
+
+
+  </md-toolbar>
+</div>

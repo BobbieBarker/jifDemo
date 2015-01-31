@@ -2,7 +2,7 @@
   <md-toolbar md-theme="purple">
     <div layout="row" layout-fill layout-margin layout-padding>
       <md-button class="md-raised" ng-click="prevPage()" ng-disabled="prevPageDisabled()">
-        <i class="fa fa-step-backward fa-2x"></i>
+        <i class="fa fa-step-backward fa-lg"></i>
         <md-tooltip>
           Previous Set
         </md-tooltip>
@@ -12,7 +12,7 @@
         <input ng-model="searchText.$" type="text">
       </md-input-container>
       <md-button class="md-raised" ng-click="nextPage()" ng-disabled="nextPageDisabled()">
-        <i class="fa fa-step-forward fa-2x"></i>
+        <i class="fa fa-step-forward fa-lg"></i>
         <md-tooltip>
           Next Set
         </md-tooltip>
@@ -23,6 +23,7 @@
 
   <md-list layout="row" layout-align="center center" layout-padding layout-wrap>
     <md-item
+    class="fx-fade-down  fx-speed-1400"
     ng-repeat="pic in picList.data | pagination:currentPage*itemsPerPage | limitTo: itemsPerPage | filter:searchText"
     layout="row"
     layout-fill

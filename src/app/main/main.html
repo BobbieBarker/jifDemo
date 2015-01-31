@@ -1,13 +1,19 @@
 <div layout="row" layout-align="center center" class="vertical-center-row">
-  <md-card flex="45">
+  <md-card flex="45"
+  flex-sm="100"
+  flex-gt-sm="85"
+  flex-md="75"
+  flex-gt-md="65"
+  flex-lg="55"
+  flex-gt-lg="45">
     <md-toolbar>
       <div class="md-toolbar-tools">
         <span>Chad Jif Demo</span>
       </div>
     </md-toolbar>
-    <md-card-content>
-      <p>
-        Welcome to my awesome instagram integration demonstration, click the button to get started.
+    <md-card-content layout="row" layout-padding layout-margin>
+      <p flex>
+        Welcome to my awesome instagram integration demonstration, click the instagram icon.
       </p>
       <md-button class="md-fab md-primary md-hue-1" aria-label="Profile" ng-click="getLoggedIn()">
         <i class="fa fa-instagram fa-2x"></i>

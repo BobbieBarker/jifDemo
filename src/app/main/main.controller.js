@@ -7,7 +7,7 @@ angular.module('chadJiffDemo.sign-in')
           $rootScope.$broadcast('auth-login-success')
         }
       }).catch(function(error){
-        console.log(error)
+        console.log(error, 'should do something about this')
       })
     }
   });

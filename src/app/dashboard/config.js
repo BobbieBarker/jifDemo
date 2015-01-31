@@ -9,6 +9,9 @@ angular.module('chadJiffDemo.dashboard.config', [])
       resolve: {
         currentUser: function(instagramService){
           return instagramService.getUser()
+        },
+        myPics: function(instagramService){
+          return instagramService.getMyPics();
         }
       }
     })

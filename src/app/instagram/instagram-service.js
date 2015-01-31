@@ -43,6 +43,15 @@ angular.module('chadJiffDemo.instagram.service', [])
           console.log(error)
         })
         return deferred.promise;
+      },
+      getMyPics: function(){
+        var deferred = $q.defer();
+        var promise = authorizationResult.get('/v1/users/self/feed').done(function(data){
+          deferred.resolve(data.data);
+        }).fail(function(error){
+          console.log(error)
+        })
+        return deferred.promise;
       }
     }
   })

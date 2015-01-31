@@ -1,3 +1,30 @@
-<p>
-  blow me
-</p>
+<md-toolbar >
+  <div class="md-toolbar-tools">
+    <span flex="45">
+      <h2>
+        <a ui-sref="dashboard">
+          Chad Jif Demo
+          <md-tooltip>
+            Return To DashBoard
+          </md-tooltip>
+        </a>
+      </h2>
+    </span>
+    <span flex="45"><small>Logged In As: {{user.full_name}}</small></span>
+    <span flex="8">
+
+      <a ng-click="logout()" ui-sref="sign-in">
+        <md-button>
+          <i class="fa fa-sign-out fa-2x"></i>
+        </md-button>
+        <md-tooltip>
+          Sign Out
+        </md-tooltip>
+      </a>
+    </span>
+  </div>
+</md-toolbar>
+
+<div>
+  <insta-gram-pics pic-list="myPicsList"></insta-gram-pics>
+</div>

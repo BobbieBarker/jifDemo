@@ -1,0 +1,23 @@
+<md-card class="md-card-z1" flex>
+  <div layout="row" layout-fill>
+    <md-input-container layout-fill layout-margin layout-padding>
+      <label><i class="fa fa-search"></i>Search Your Pics</label>
+      <input ng-model="searchText.$" type="text">
+    </md-input-container>
+  </div>
+
+  <md-list layout="row" layout-align="center center" layout-padding layout-wrap>
+    <md-item ng-repeat="pic in picList | filter:searchText" layout="row" layout-fill flex="15">
+      <md-item-content>
+      <md-whiteframe class="md-whiteframe-z3" layout="row" layout-margin flex>
+        <div class="md-tile-left">
+          <img ng-src="{{pic.images.thumbnail.url}}" class="face" alt="">
+        </div>
+        <div class="md-tile-content">
+          <h4>{{pic.caption.text}}</h4>
+        </div>
+      </md-whiteframe>
+    </md-item-content>
+    </md-item>
+  </md-list>
+</md-card>

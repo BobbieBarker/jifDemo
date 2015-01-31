@@ -10,5 +10,5 @@ angular.module('chadJiffDemo.sign-in.controller', [])
         console.log(error, 'should do something about this')
 
       })
-    }
+    };
   });

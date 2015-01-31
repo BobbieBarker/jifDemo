@@ -38,13 +38,13 @@ angular.module('chadJiffDemo', [
     if(toState.resolve){
       $scope.isResolvesPending = true;
     }
-  })
+  });
 
   $scope.$on('$stateChangeSuccess', function($event, toState, toParams, fromState, fromParams){
     if (toState.resolve) {
       $scope.isResolvesPending = false;
     }
-  })
+  });
 
   $scope.$on('$stateChangeError', function($event, toState, toParams, fromState, fromParams, error){
 
@@ -63,6 +63,6 @@ angular.module('chadJiffDemo', [
           return message;
         }
       }
-    })
-  })
-})
+    });
+  });
+});

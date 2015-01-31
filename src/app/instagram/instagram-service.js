@@ -19,7 +19,7 @@ angular.module('chadJiffDemo.instagram.service', [])
             Session.create(result.user.id, result.access_token);
             deferred.resolve();
           }else{
-            deferred.reject(error.status)
+            deferred.reject(error.status);
             //do some failed login stuff
           }
         })
@@ -33,9 +33,9 @@ angular.module('chadJiffDemo.instagram.service', [])
       getUser: function(){
         var deferred = $q.defer();
         var promise = authorizationResult.get('/v1/users/' + Session.id).done(function(data){
-          deferred.resolve(data.data)
+          deferred.resolve(data.data);
         }).fail(function(error){
-          deferred.reject(error.status)
+          deferred.reject(error.status);
         })
         return deferred.promise;
       },
@@ -44,9 +44,9 @@ angular.module('chadJiffDemo.instagram.service', [])
         var promise = authorizationResult.get('/v1/users/self/feed?count=-1').done(function(data){
           deferred.resolve(data);
         }).fail(function(error){
-          deferred.reject(error.status)
+          deferred.reject(error.status);
         })
         return deferred.promise;
       }
-    }
-  })
+    };
+  });

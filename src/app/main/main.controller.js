@@ -8,6 +8,7 @@ angular.module('chadJiffDemo.sign-in')
         }
       }).catch(function(error){
         console.log(error, 'should do something about this')
+        
       })
     }
   });

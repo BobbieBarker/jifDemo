@@ -12,7 +12,12 @@
         </h2>
       </span>
 
-      <span><small>Logged In As: {{user.full_name}}</small></span>
+      <span>
+        <small>Logged In As:
+          <span ng-bind="user.full_name">
+          </span>
+        </small>
+      </span>
 
       <span>
         <a ng-click="logout()" ui-sref="sign-in">

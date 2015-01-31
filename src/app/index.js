@@ -8,17 +8,29 @@ angular.module('chadJiffDemo', [
 'restangular',
 'ui.router',
 'ngMaterial',
+'chadTools.toasters',
 'chadJiffDemo.instagram',
 'chadJiffDemo.sign-in',
 'chadJiffDemo.session',
 'chadJiffDemo.dashboard',
 'chadJiffDemo.navbar',
 'ngFx'
-]).controller('chadDemoCtrl', function($scope, $state, Session, instagramService){
+]).controller('chadDemoCtrl', function($scope, $state, $mdToast, Session, instagramService){
   instagramService.initialize();
   $scope.$on('auth-login-success', function(data){
     if(!_.isUndefined(Session.instagramToken) && !_.isUndefined(Session.id)){
       $state.go('dashboard')
+      $mdToast.show({
+        templateUrl: 'app/components/toasters/positive-feedback.html',
+        controller: 'toasterCtrl',
+        hideDelay: 6000,
+        posistion: 'left right',
+        resolve: {
+          message: function(){
+            return 'Congratz, you\'re now logged in!';
+          }
+        }
+      })
     }
   })
 
@@ -34,5 +46,17 @@ angular.module('chadJiffDemo', [
     }
   })
 
-
+  $scope.$on('$stateChangeError', function($event, toState, toParams, fromState, fromParams, error){
+    $mdToast.show({
+      templateUrl: 'app/components/toasters/bad-login-toast.html',
+      controller: 'toasterCtrl',
+      hideDelay: 6000,
+      posistion: 'left right',
+      resolve: {
+        message: function(){
+          return 'Awe snap, something went wrong, try reloading the page';a
+        }
+      }
+    })
+  })
 })

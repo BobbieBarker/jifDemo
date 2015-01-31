@@ -7,4 +7,4 @@ angular.module('chadJiffDemo.dashboard.pagination', [])
         return input.slice(start);
       }
     };
-  })
+  });

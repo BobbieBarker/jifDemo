@@ -3,7 +3,5 @@ angular.module('chadJiffDemo.dashboard.controller', [])
     $scope.user = currentUser;
     $timeout(function(){
       $scope.myPicsList = myPics;
-    }, 100)
-
-
-  })
+    }, 100);
+  });

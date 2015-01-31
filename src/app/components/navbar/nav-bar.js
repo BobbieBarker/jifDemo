@@ -24,5 +24,5 @@ angular.module('chadJiffDemo.navbar', [])
           }
         }
       });
-    }
-  })
+    };
+  });

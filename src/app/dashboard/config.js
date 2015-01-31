@@ -14,6 +14,5 @@ angular.module('chadJiffDemo.dashboard.config', [])
           return instagramService.getMyPics();
         }
       }
-    })
-
-})
+    });
+});

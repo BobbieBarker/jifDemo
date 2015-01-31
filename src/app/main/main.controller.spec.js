@@ -1,22 +1,24 @@
-'use strict';
+describe('main controller', function(){
+  var mockToast, mockService
+  beforeEach(function(){
 
-describe('controllers', function(){
-  var scope;
+    module('chadJiffDemo.sign-in.controller', function($provide){
+      $provide.value('$mdToast', mockToast);
+      mockService = {connectInstagram: jasmine.createSpy()};
+      $provide.value('instagramService', mockService);
+      $provide.value('instagramService', mockService);
+    })
 
-  beforeEach(module('chadJiffDemo'));
+    inject(function($controller, _$rootScope_){
+      $scope = {};
+      $rootscope = _$rootScope_;
+      $controller('MainCtrl', {$scope: $scope})
+    })
 
-  beforeEach(inject(function($rootScope) {
-    scope = $rootScope.$new();
-  }));
+  })
 
-  it('should define more than 5 awesome things', inject(function($controller) {
-    expect(scope.awesomeThings).toBeUndefined();
-
-    $controller('MainCtrl', {
-      $scope: scope
-    });
-
-    expect(angular.isArray(scope.awesomeThings)).toBeTruthy();
-    expect(scope.awesomeThings.length > 5).toBeTruthy();
-  }));
+  it('should define getLoggedIn on scope as a function', function(){
+    expect($scope.getLoggedIn).toBeDefined();
+    expect($scope.getLoggedIn).toEqual(jasmine.any(Function));
+  })
 });

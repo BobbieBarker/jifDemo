@@ -21,7 +21,7 @@ angular.module('chadJiffDemo.dashboard.instagram', [])
     };
 
     $scope.prevPageDisabled = function() {
-      return $scope.currentPage === 0 ? true : "";
+      return $scope.currentPage === 0 ? true : false;
     };
 
 
@@ -31,7 +31,6 @@ angular.module('chadJiffDemo.dashboard.instagram', [])
       }
     }
 
-
     $scope.nextPage = function() {
       if ($scope.currentPage < self.pageCount()) {
         $scope.currentPage++;
@@ -39,6 +38,6 @@ angular.module('chadJiffDemo.dashboard.instagram', [])
     };
 
     $scope.nextPageDisabled = function() {
-      return $scope.currentPage === self.pageCount() ? true : "";
+      return $scope.currentPage === self.pageCount() ? true : false;
     };
   })

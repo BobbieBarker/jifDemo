@@ -1,0 +1,9 @@
+{
+  "name": "chad-jiff-demo",
+  "root": "./dist",
+  "clean_urls": false,
+  "error_page": "error.html",
+  "routes": {
+    "**": "index.html"
+  }
+}

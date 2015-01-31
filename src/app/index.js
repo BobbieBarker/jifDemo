@@ -47,6 +47,12 @@ angular.module('chadJiffDemo', [
   })
 
   $scope.$on('$stateChangeError', function($event, toState, toParams, fromState, fromParams, error){
+
+    var message = 'Awe snap, something went wrong, try reloading the page';
+    if(!instagramService.isReady()){
+      message = 'You are not logged in!';
+      $scope.isResolvesPending = false;
+    }
     $mdToast.show({
       templateUrl: 'app/components/toasters/bad-login-toast.html',
       controller: 'toasterCtrl',
@@ -54,7 +60,7 @@ angular.module('chadJiffDemo', [
       posistion: 'left right',
       resolve: {
         message: function(){
-          return 'Awe snap, something went wrong, try reloading the page';a
+          return message;
         }
       }
     })

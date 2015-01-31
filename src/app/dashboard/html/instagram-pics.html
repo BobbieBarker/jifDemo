@@ -1,13 +1,28 @@
 <md-card class="md-card-z1" flex>
-  <div layout="row" layout-fill>
-    <md-input-container layout-fill layout-margin layout-padding>
-      <label><i class="fa fa-search"></i>Search Your Pics</label>
-      <input ng-model="searchText.$" type="text">
-    </md-input-container>
-  </div>
+  <md-toolbar md-theme="purple">
+    <div layout="row" layout-fill layout-margin layout-padding>
+      <md-button class="md-raised" ng-click="prevPage()" ng-disabled="prevPageDisabled()">
+        <i class="fa fa-step-backward fa-2x"></i>
+        <md-tooltip>
+          Previous Set
+        </md-tooltip>
+        </md-button>
+      <md-input-container layout-fill layout-margin layout-padding>
+        <label><i class="fa fa-search"></i>Search Your Pics</label>
+        <input ng-model="searchText.$" type="text">
+      </md-input-container>
+      <md-button class="md-raised" ng-click="nextPage()" ng-disabled="nextPageDisabled()">
+        <i class="fa fa-step-forward fa-2x"></i>
+        <md-tooltip>
+          Next Set
+        </md-tooltip>
+        </md-button>
+    </div>
+  </md-toolbar>
+
 
   <md-list layout="row" layout-align="center center" layout-padding layout-wrap>
-    <md-item ng-repeat="pic in picList | filter:searchText" layout="row" layout-fill flex="15">
+    <md-item ng-repeat="pic in picList.data | pagination:currentPage*itemsPerPage | limitTo: itemsPerPage | filter:searchText" layout="row" layout-fill flex="15">
       <md-item-content>
       <md-whiteframe class="md-whiteframe-z3" layout="row" layout-margin flex>
         <div class="md-tile-left">

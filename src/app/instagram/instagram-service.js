@@ -1,12 +1,5 @@
 'use strict';
 angular.module('chadJiffDemo.instagram.service', [])
-  .config(function(){
-    /*OAuthProvider.setPublicKey('-L6Xe4mX7v5UwNLrt5ghrS4NldA');
-    OAuthProvider.setHandler('instagram', function(OAuthData, Session){
-      console.log(OAuthData)
-      Session.create(OAuthData.result.user.id, OAuthData.result.access_token);
-    })*/
-  })
   .factory('instagramService', function($q, Session){
     var authorizationResult = false;
 

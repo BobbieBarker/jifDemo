@@ -14,7 +14,6 @@ angular.module('chadJiffDemo', [
 'chadJiffDemo.dashboard'
 ]).controller('chadDemoCtrl', function($scope, $state, Session, instagramService){
   instagramService.initialize();
-
   $scope.$on('auth-login-success', function(data){
     if(!_.isUndefined(Session.instagramToken) && !_.isUndefined(Session.id)){
       $state.go('dashboard')

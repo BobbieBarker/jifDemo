@@ -1,11 +1,9 @@
 'use strict';
-
 angular.module('chadJiffDemo', [
 'ngAnimate',
 'ngCookies',
 'ngTouch',
 'ngSanitize',
-'restangular',
 'ui.router',
 'ngMaterial',
 'chadTools.toasters',
@@ -14,8 +12,20 @@ angular.module('chadJiffDemo', [
 'chadJiffDemo.session',
 'chadJiffDemo.dashboard',
 'chadJiffDemo.navbar',
-'ngFx'
-]).controller('chadDemoCtrl', function($scope, $state, $mdToast, Session, instagramService){
+]).config(function($mdThemingProvider){
+
+  $mdThemingProvider.theme('default')
+  .primaryPalette('red', {
+    'default': '500',
+    'hue-1': '400',
+    'hue-2': '200'
+  })
+  .accentPalette('light-blue', {
+    'default': '500'
+  })
+
+
+}).controller('chadDemoCtrl', function($scope, $state, $mdToast, Session, instagramService){
   instagramService.initialize();
   $scope.$on('auth-login-success', function(data){
     if(!_.isUndefined(Session.instagramToken) && !_.isUndefined(Session.id)){

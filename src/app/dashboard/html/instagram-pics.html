@@ -1,50 +1,39 @@
-<md-card class="md-card-z1" flex>
-  <md-toolbar md-theme="purple">
-    <div layout="row" layout-fill layout-margin layout-padding>
-      <md-button class="md-raised" ng-click="prevPage()" ng-disabled="prevPageDisabled()">
-        <i class="fa fa-step-backward fa-lg"></i>
-        <md-tooltip>
-          Previous Set
-        </md-tooltip>
-        </md-button>
-      <md-input-container layout-fill layout-margin layout-padding>
-        <label><i class="fa fa-search"></i>Search Your Pics</label>
-        <input ng-model="searchText.$" type="text">
-      </md-input-container>
-      <md-button class="md-raised" ng-click="nextPage()" ng-disabled="nextPageDisabled()">
-        <i class="fa fa-step-forward fa-lg"></i>
-        <md-tooltip>
-          Next Set
-        </md-tooltip>
-        </md-button>
-    </div>
-  </md-toolbar>
+<md-toolbar class="md-tall md-primary md-hue-2">
+  <span flex></span>
+  <div class="md-toolbar-tools md-toolbar-tools-bottom">
+    <md-input-container  layout-margin layout-padding>
+      <label><i class="fa fa-search"></i>Search Your Pics</label>
+      <input ng-model="searchText.$" type="text">
+    </md-input-container>
+  </div>
 
+</md-toolbar>
 
-  <md-list layout="row" layout-align="center center" layout-padding layout-wrap>
-    <md-item
-    class="fx-fade-down  fx-speed-700"
-    ng-repeat="pic in picList.data | pagination:currentPage*itemsPerPage | limitTo: itemsPerPage | filter:searchText"
-    layout="row"
-    layout-fill
-    flex-sm="100"
-    flex-gt-sm="55"
-    flex-md="45"
-    flex-gt-md="35"
-    flex-lg="33"
-    flex-gt-lg="20"
-    >
-      <md-whiteframe class="md-whiteframe-z3" layout="column" layout-align="start start" layout-margin layout-padding flex >
-        <md-item-content layout-margin layout-padding flex>
-        <div class="md-tile-left">
-          <img ng-src="{{pic.images.thumbnail.url}}" class="face" alt="">
-        </div>
-        <div class="md-tile-content" layout-padding layout-margin>
-          <h3 ng-bind="pic.caption.text"></h3>
-        </div>
-      </md-item-content>
-      </md-whiteframe>
-
-    </md-item>
-  </md-list>
-</md-card>
+  <md-tabs class="md-accent" md-selected="selectedIndex">
+    <md-tab ng-repeat="page in pagination" label="{{page.currentPage}}">
+      <md-list layout="row" layout-align="center center" layout-padding layout-wrap>
+        <md-item
+        ng-repeat="pic in picList.data[selectedIndex] | filter:searchText"
+        layout="row"
+        layout-fill
+        flex-sm="100"
+        flex-gt-sm="55"
+        flex-md="45"
+        flex-gt-md="35"
+        flex-lg="33"
+        flex-gt-lg="20"
+        >
+        <md-whiteframe class="md-whiteframe-z3" layout="column" layout-align="start start" layout-margin layout-padding flex >
+          <md-item-content layout-margin layout-padding flex>
+            <div class="md-tile-left">
+              <img ng-src="{{pic.images.thumbnail.url}}" class="face" alt="">
+            </div>
+            <div class="md-tile-content" layout-padding layout-margin>
+              <h3 ng-bind="pic.caption.text"></h3>
+            </div>
+          </md-item-content>
+        </md-whiteframe>
+      </md-item>
+    </md-list>
+    </md-tab>
+  </md-tabs>

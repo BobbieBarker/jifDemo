@@ -10,34 +10,23 @@ angular.module('chadJiffDemo.dashboard.instagram', [])
       controller: 'myPicCtrl'
     }
   }).controller('myPicCtrl', function($scope){
+
+    $scope.pagination = [];
     self = this;
-    $scope.itemsPerPage = 20;
-    $scope.currentPage = 0;
+    var itemsPerPage = 20;
 
-    $scope.prevPage = function() {
-      if ($scope.currentPage > 0) {
-        $scope.currentPage--;
-      }
-    };
-
-    $scope.prevPageDisabled = function() {
-      return $scope.currentPage === 0 ? true : false;
-    };
-
+    $scope.$watch('picList', function(){
+      console.log('cheese')
+      self.pageCount();
+    })
 
     this.pageCount = function(){
       if(!_.isUndefined($scope.picList)){
-        return Math.ceil($scope.picList.data.length/$scope.itemsPerPage)-1;
+        var divisor = Math.ceil($scope.picList.data.length/itemsPerPage);
+        for(var i = 0; i < divisor; i++){
+          $scope.pagination.push({currentPage: i});
+        }
+        $scope.picList.data =  _.chunk($scope.picList.data, 20);
       }
-    }
-
-    $scope.nextPage = function() {
-      if ($scope.currentPage < self.pageCount()) {
-        $scope.currentPage++;
-      }
-    };
-
-    $scope.nextPageDisabled = function() {
-      return $scope.currentPage === self.pageCount() ? true : false;
     };
   })

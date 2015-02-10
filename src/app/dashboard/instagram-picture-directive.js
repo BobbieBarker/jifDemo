@@ -26,7 +26,7 @@ angular.module('chadJiffDemo.dashboard.instagram', [])
         for(var i = 0; i < divisor; i++){
           $scope.pagination.push({currentPage: i});
         }
-        $scope.picList.data =  _.chunk($scope.picList.data, 20);
+        $scope.picList.data =  _.chunk($scope.picList.data, itemsPerPage);
       }
     };
   })

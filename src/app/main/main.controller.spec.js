@@ -35,10 +35,14 @@ describe('main controller', function(){
   describe('$scope.getLoggedIn with isReady true', function(){
     beforeEach(function(){
       $scope.getLoggedIn();
-      spyOn(mockService, 'isReady').and.returnValue(true)
-      deferred.resolve();
-      $rootScope.$digest();
     });
+
+    describe('isReady set to true', function(){
+      beforeEach(function(){
+        spyOn(mockService, 'isReady').and.returnValue(true);
+        deferred.resolve();
+        $rootScope.$digest();
+      })
       it('should call instagramService.contectInstagram', function(){
         expect(mockService.connectInstagram).toHaveBeenCalled();
       });
@@ -49,19 +53,19 @@ describe('main controller', function(){
 
       it('should call rootScope.broadcast', function(){
         expect($rootScope.$broadcast).toHaveBeenCalled();
-      })
-  });
+      });
+    });
 
-  describe('$scope.getLoggedIn with isReady false', function(){
-    beforeEach(function(){
-      $scope.getLoggedIn();
-      spyOn(mockService, 'isReady').and.returnValue(false)
-      deferred.resolve();
-      $rootScope.$digest();
-    })
-    it('should call isReady and not call $rootScope.$broadcast', function(){
-      expect(mockService.isReady).toHaveBeenCalled();
-      expect($rootScope.$broadcast).not.toHaveBeenCalled();
-    })
-  })
+    describe(' isReady false', function(){
+      beforeEach(function(){
+        spyOn(mockService, 'isReady').and.returnValue(false)
+        deferred.resolve();
+        $rootScope.$digest();
+      });
+      it('should call isReady and not call $rootScope.$broadcast', function(){
+        expect(mockService.isReady).toHaveBeenCalled();
+        expect($rootScope.$broadcast).not.toHaveBeenCalled();
+      });
+    });
+  });
 });

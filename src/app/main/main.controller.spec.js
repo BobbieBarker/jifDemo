@@ -1,9 +1,8 @@
 describe('main controller', function(){
-  var mockToast, mockService, q, deferred;
+  var mockService, q, deferred;
   beforeEach(function(){
 
     module('chadJiffDemo.sign-in.controller', function($provide){
-      $provide.value('$mdToast', mockToast);
       mockService = {
         isReady: function(){
           return jasmine.createSpy();

@@ -13,7 +13,7 @@ describe('main controller', function(){
         }
       };
       $provide.value('instagramService', mockService);
-    })
+    });
 
     inject(function($controller, _$rootScope_, $q){
       $scope = {};
@@ -21,11 +21,9 @@ describe('main controller', function(){
       $rootScope = _$rootScope_;
       spyOn($rootScope, '$broadcast').and.callThrough();
       spyOn(mockService, 'connectInstagram').and.callThrough();
-      $rootscope = _$rootScope_;
-      $controller('MainCtrl', {$scope: $scope})
-    })
-
-  })
+      $controller('MainCtrl', {$scope: $scope});
+    });
+  });
 
   it('should define getLoggedIn on scope as a function', function(){
     expect($scope.getLoggedIn).toBeDefined();

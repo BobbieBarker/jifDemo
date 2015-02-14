@@ -1,7 +1,6 @@
+'use strict';
 angular.module('chadJiffDemo.dashboard.controller', [])
-  .controller('dashboardCtrl', function($scope, $state, $timeout, currentUser, myPics){
+  .controller('dashboardCtrl', function($scope, $state, currentUser, myPics){
     $scope.user = currentUser;
-    $timeout(function(){
-      $scope.myPicsList = myPics;
-    }, 100);
+    $scope.myPicsList = myPics;
   });

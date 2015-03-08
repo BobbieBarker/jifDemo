@@ -7,26 +7,28 @@ angular.module('chadJiffDemo.dashboard.instagram', [])
         picList: '='
       },
       templateUrl: 'app/dashboard/html/instagram-pics.html',
-      controller: 'myPicCtrl'
+      controller: 'myPicCtrl',
+      controllerAs: 'mypics',
+      bindToController: true,
     }
   }).controller('myPicCtrl', function($scope){
-
-    $scope.pagination = [];
-    self = this;
+    var mypics = this;
+    mypics.pagination = [];
     var itemsPerPage = 20;
 
-    $scope.$watch('picList', function(){
-      console.log('cheese')
-      self.pageCount();
+    $scope.$watch(angular.bind(this, function(){
+      return this.picList;
+    }), function(newVal, oldVal){
+      mypics.pageCount();
     })
 
-    this.pageCount = function(){
-      if(!_.isUndefined($scope.picList)){
-        var divisor = Math.ceil($scope.picList.data.length/itemsPerPage);
+    mypics.pageCount = function(){
+      if(!_.isUndefined(mypics.picList)){
+        var divisor = Math.ceil(mypics.picList.data.length/itemsPerPage);
         for(var i = 0; i < divisor; i++){
-          $scope.pagination.push({currentPage: i});
+          mypics.pagination.push({currentPage: i});
         }
-        $scope.picList.data =  _.chunk($scope.picList.data, itemsPerPage);
+        mypics.picList.data =  _.chunk(mypics.picList.data, itemsPerPage);
       }
     };
-  })
+  });

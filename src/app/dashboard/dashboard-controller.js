@@ -1,6 +1,7 @@
 'use strict';
 angular.module('chadJiffDemo.dashboard.controller', [])
-  .controller('dashboardCtrl', function($scope, $state, currentUser, myPics){
-    $scope.user = currentUser;
-    $scope.myPicsList = myPics;
+  .controller('dashboardCtrl', function($state, currentUser, myPics){
+    var dashboard = this;
+    dashboard.user = currentUser;
+    dashboard.myPicsList = myPics;
   });

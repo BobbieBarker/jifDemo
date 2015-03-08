@@ -1,5 +1,5 @@
 describe('nav bar', function(){
-  var mockService, mockState, mockToast;
+  var mockService, mockState, mockToast, navbar;
 
   mockToast = {show: jasmine.createSpy()};
   beforeEach(function(){
@@ -15,18 +15,17 @@ describe('nav bar', function(){
     })
 
     inject(function($controller){
-      $scope = {}
-      $controller('navbarCtrl', {$scope: $scope})
+      navbar  = $controller('navbarCtrl')
     })
   })
 
   it('should define logout on scope as a function', function(){
-    expect($scope.logout).toBeDefined();
-    expect($scope.logout).toEqual(jasmine.any(Function))
+    expect(navbar.logout).toBeDefined();
+    expect(navbar.logout).toEqual(jasmine.any(Function))
   })
 
   it('should call the spies when logout is called', function(){
-    $scope.logout();
+    navbar.logout();
     expect(mockService.clearCache).toHaveBeenCalled();
     expect(mockState.go).toHaveBeenCalled();
     expect(mockToast.show).toHaveBeenCalled();

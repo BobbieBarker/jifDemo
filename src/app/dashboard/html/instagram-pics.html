@@ -10,10 +10,10 @@
 </md-toolbar>
 
   <md-tabs class="md-accent" md-selected="selectedIndex">
-    <md-tab ng-repeat="page in pagination" label="{{page.currentPage}}">
+    <md-tab ng-repeat="page in mypics.pagination" label="{{page.currentPage}}">
       <md-list layout="row" layout-align="center center" layout-padding layout-wrap>
         <md-item
-        ng-repeat="pic in picList.data[selectedIndex] | filter:searchText"
+        ng-repeat="pic in mypics.picList.data[selectedIndex] | filter:searchText"
         layout="row"
         layout-fill
         flex-sm="100"

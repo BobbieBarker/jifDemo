@@ -1,5 +1,5 @@
 describe('main controller', function(){
-  var mockService, q, deferred;
+  var mockService, q, deferred, main;
   beforeEach(function(){
 
     module('chadJiffDemo.sign-in.controller', function($provide){
@@ -16,23 +16,22 @@ describe('main controller', function(){
     });
 
     inject(function($controller, _$rootScope_, $q){
-      $scope = {};
       q = $q;
       $rootScope = _$rootScope_;
       spyOn($rootScope, '$broadcast').and.callThrough();
       spyOn(mockService, 'connectInstagram').and.callThrough();
-      $controller('MainCtrl', {$scope: $scope});
+      main = $controller('MainCtrl');
     });
   });
 
   it('should define getLoggedIn on scope as a function', function(){
-    expect($scope.getLoggedIn).toBeDefined();
-    expect($scope.getLoggedIn).toEqual(jasmine.any(Function));
+    expect(main.getLoggedIn).toBeDefined();
+    expect(main.getLoggedIn).toEqual(jasmine.any(Function));
   });
 
-  describe('$scope.getLoggedIn with isReady true', function(){
+  describe('getLoggedIn with isReady true', function(){
     beforeEach(function(){
-      $scope.getLoggedIn();
+      main.getLoggedIn();
     });
 
     describe('isReady set to true', function(){

@@ -4,7 +4,7 @@ angular.module('chadJiffDemo.sign-in.config', [])
   .state('sign-in', {
     url: '/',
     templateUrl: 'app/main/main.html',
-    controller: 'MainCtrl'
+    controller: 'MainCtrl as main'
   });
 
   $urlRouterProvider.otherwise('/');

@@ -7,15 +7,18 @@ angular.module('chadJiffDemo.navbar', [])
         user: '='
       },
       templateUrl: 'app/components/navbar/navbar.html',
-      controller: 'navbarCtrl'
+      controller: 'navbarCtrl',
+      controllerAs: 'navbar',
+      bindToController: true,
     }
-  }).controller('navbarCtrl', function($scope, $state, $mdToast, instagramService){
-    $scope.logout = function(){
+  }).controller('navbarCtrl', function($state, $mdToast, instagramService){
+    var navbar = this;
+    navbar.logout = function(){
       instagramService.clearCache();
       $state.go('sign-in');
       $mdToast.show({
         templateUrl: 'app/components/toasters/informmative-toaster.html',
-        controller: 'toasterCtrl',
+        controller: 'toasterCtrl as toaster',
         hideDelay: 3000,
         position: 'bottom left',
         resolve: {

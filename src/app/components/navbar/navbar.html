@@ -14,13 +14,13 @@
 
       <span>
         <small>Logged In As:
-          <span ng-bind="user.full_name">
+          <span ng-bind="navbar.user.full_name">
           </span>
         </small>
       </span>
 
       <span>
-        <a ng-click="logout()" ui-sref="sign-in">
+        <a ng-click="navbar.logout()" ui-sref="sign-in">
           <md-button>
             <i class="fa fa-sign-out fa-2x"></i>
           </md-button>

@@ -5,7 +5,7 @@ angular.module('chadJiffDemo.dashboard.config', [])
     .state('dashboard', {
       url: '/dashboard',
       templateUrl: 'app/dashboard/html/dashboard.html',
-      controller: 'dashboardCtrl',
+      controller: 'dashboardCtrl as dashboard',
       resolve: {
         currentUser: function(instagramService){
           return instagramService.getUser()

@@ -32,7 +32,7 @@ angular.module('chadJiffDemo', [
       $state.go('dashboard')
       $mdToast.show({
         templateUrl: 'app/components/toasters/positive-feedback.html',
-        controller: 'toasterCtrl',
+        controller: 'toasterCtrl as toaster',
         hideDelay: 6000,
         posistion: 'left right',
         resolve: {
@@ -65,7 +65,7 @@ angular.module('chadJiffDemo', [
     }
     $mdToast.show({
       templateUrl: 'app/components/toasters/bad-login-toast.html',
-      controller: 'toasterCtrl',
+      controller: 'toasterCtrl as toaster',
       hideDelay: 6000,
       posistion: 'left right',
       resolve: {

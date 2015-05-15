@@ -19,6 +19,7 @@ angular.module('chadJiffDemo.instagram.service', [])
             Session.create(result.user.id, result.access_token);
             deferred.resolve();
           }else{
+            console.log(error)
             deferred.reject(error.status);
             //do some failed login stuff
           }
@@ -41,7 +42,7 @@ angular.module('chadJiffDemo.instagram.service', [])
       },
       getMyPics: function(){
         var deferred = $q.defer();
-        var promise = authorizationResult.get('/v1/users/self/feed?count=-1').done(function(data){
+        var promise = authorizationResult.get('/v1/users/self/feed?count=1000').done(function(data){
           deferred.resolve(data);
         }).fail(function(error){
           deferred.reject(error.status);
